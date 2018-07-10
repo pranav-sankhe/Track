@@ -1,3 +1,5 @@
 - Writing Conversation agents| Blog post| : [Click Here](https://rominirani.com/hands-on-with-api-ai-google-assistant-writing-your-first-conversation-agent-a6a7dcdaba27)
 - Interface ESP8266 with Google Home| GitHub|: [Click Here](https://github.com/nassir-malik/IOT-ESP8266-Google-Home)
 - using IFTT on ESP8266| Blog Post|: [Click Here](http://lucstechblog.blogspot.com/2017/03/back-to-basic-basic-language-on-esp8266.html)
+- Building your onw API.ai [Click Here](https://www.sitepoint.com/how-to-build-your-own-ai-assistant-using-api-ai/)
+- This is an unofficial documentation of the local API used by the Home app to communicate with the device [Click Here](https://rithvikvibhu.github.io/GHLocalApi/#assistant-tasks)
