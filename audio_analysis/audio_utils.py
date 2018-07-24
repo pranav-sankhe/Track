@@ -30,6 +30,10 @@ warnings.filterwarnings('ignore')
 
 import math
 
+
+'''
+This class enables interactive plots which zoom out and zoom in on mouse scroll
+'''
 class ZoomPan:
     def __init__(self):
         self.press = None
@@ -112,33 +116,50 @@ class ZoomPan:
         return onMotion
 
 
-#def freqMod(freq):
-
-
-def covariance(seq1, seq2, plot_true):
+'''
+Compute the covariance between sequence 1 and sequence 2. 
+'''
+def covariance(seq1, seq2):
     seq1 = np.array(seq1)
     seq2 = np.array(seq2)
 
     cov = np.cov(seq1, seq1)
-    if plot_true == True:
-        plt.plot(cov)
+    # if plot_true == True:
+    #     plt.plot(cov)
     return cov  
 
+'''
+Compute the covariance between sequence 1 and sequence 2. 
+Args: 
+- array1, array2 are the sequence of whom you want to compute the correlation
+- Mode
+    - 'full':
+            This returns the convolution at each point of overlap, with an output shape of (N+M-1,). 
+            At the end-points of the convolution, the signals do not overlap completely, and boundary effects may be seen.
+    - 'same':
+            Mode ‘same’ returns output of length max(M, N). Boundary effects are still visible.
+    - 'valid':
+             Mode ‘valid’ returns output of length max(M, N) - min(M, N) + 1. The convolution product 
+            is only given for points where the signals overlap completely. Values outside the signal boundary have no effect. 
+'''
+def correlation(array1, array2, mode, plot_true):
 
-def correlation(array1, array2, input_size, plot_true):
-    if input_size == 1:
-        cor = np.correlate(array1, array2, "full")
-        if plot_true == True: 
-            plt.plot(cor)
-
-    if input_size == 2: 
-
-        cor = signal.correlate2d(array1, array2, boundary='symm', mode='same')      
-        if plot_true == True:
-            plt.plot(corr)
+    cor = signal.correlate2d(array1, array2, boundary='symm', mode=mode)      
+    if plot_true == True:
+        plt.plot(corr)
 
     return cor          
 
+'''
+Computes and plots the Mel Frequency Cepstral Coefficients and plots them. 
+Args:
+- y: The audio signal array
+- sr: The sampling rate
+- n_mfcc: number of coefficients to be returned
+- plotFlag: This is a boolean argument which when set True displays the plots  
+- save_flag: This is a boolean argument which when set True saves the plots on your filesystem
+- filename:  Name of the audio file you are which is under test. This will be the name of the plot files which are being saved. 
+'''
 
 def mfcc(y,sr, n_mfcc,plotFlag,save_flag,filename):
     
@@ -155,6 +176,19 @@ def mfcc(y,sr, n_mfcc,plotFlag,save_flag,filename):
     if plotFlag:
         plt.show()
 
+
+'''
+Computes and plots the Mel Spectogram. 
+Args:
+- y: The audio signal array
+- sr: The sampling rate
+- n_mels: number of MFCCs
+- max_freq: The maximum frequency upto which you want to compute the spectrum  
+- plotFlag: This is a boolean argument which when set True displays the plots 
+- flag_hp  This is a boolean argument which when set True does seperates the harmonic and percussive components and processing is done on the individual components
+- save_flag: This is a boolean argument which when set True saves the plots on your filesystem
+- filename:  Name of the audio file you are which is under test. This will be the name of the plot files which are being saved. 
+'''
 def melSpectrogram(y, sr, n_mels, max_freq, plotFlag,flag_hp, save_flag, filename):
     if flag_hp:
         y_harm, y_perc = librosa.effects.hpss(y)
@@ -201,7 +235,17 @@ def melSpectrogram(y, sr, n_mels, max_freq, plotFlag,flag_hp, save_flag, filenam
     
 
 
-
+'''
+Computes and plots the Spectogram of the audio signal 
+- y: The audio signal array
+- sr: The sampling rate
+- n_mels: number of MFCCs
+- hop_length: The hop_length for the stft operation  
+- plotFlag: This is a boolean argument which when set True displays the plots 
+- flag_hp  This is a boolean argument which when set True does seperates the harmonic and percussive components and processing is done on the individual components
+- save_flag: This is a boolean argument which when set True saves the plots on your filesystem
+- filename:  Name of the audio file you are which is under test. This will be the name of the plot files which are being saved. 
+'''
 def spectrogram(y, hop_length, sr, plotFlag,flag_hp,save_flag, filename):
 
 
@@ -254,6 +298,12 @@ def spectrogram(y, hop_length, sr, plotFlag,flag_hp,save_flag, filename):
         if plotFlag:             
             plt.show()
 
+'''
+Computes the pitch of the audio file
+Args:
+- y: The audio signal array
+- sr: The sampling rate
+'''
 def getPitch(y,sr):
     sp = np.fft.fft(y)
     
@@ -267,6 +317,12 @@ def getPitch(y,sr):
     # plt.show()
     return pitch
 
+'''
+Computes frequencies contained in the audio signal 
+Args:
+- y: The audio signal array
+- sr: The sampling rate
+'''
 def getFreq(y,sr):
     sp = np.fft.fft(y)
     freq = np.fft.fftfreq(y.shape[-1])
@@ -275,7 +331,12 @@ def getFreq(y,sr):
     freqHz = freq * sr    
     return freqHz, np.max(freqHz), np.min(freqHz)
 
-
+'''
+Computes the RMS energy of the audio signal 
+Args:
+- y: The audio signal array
+- sr: The sampling rate
+'''
 def rmsEnergy(y):
     y = np.square(y)
     E = np.sum(y)
@@ -283,6 +344,12 @@ def rmsEnergy(y):
     rms_E = float(rms_E)/float(len(y))
     return rms_E 
 
+'''
+Computes the centroid of the spectrum of the audio signal 
+Args:
+- y: The audio signal array
+- sr: The sampling rate
+'''
 def spectral_centroid(y,sr):
     sp = np.fft.fft(y)
     
@@ -297,7 +364,12 @@ def spectral_centroid(y,sr):
     centroid = float(np.sum(np.multiply(mag,freqHz)))/float(np.sum(mag))
     return centroid
 
-
+'''
+Computes the number of zero crossings in the audio signal 
+Args:
+- y: The audio signal array
+- sr: The sampling rate
+'''
 def zero_crossing(y,sr):
     l = []
     for i in range(len(y)-1):
@@ -306,7 +378,18 @@ def zero_crossing(y,sr):
     zero_crossing_rate = float(len(l))/float(len(y))
     return zero_crossing_rate, l         
 
-def plotTimeSeries(y,sr, downsampleF, flag_hp, plotFlag, save_flag, filename):
+'''
+Plot the audio signal in time domain 
+Args:
+- y: The audio signal array
+- sr: The sampling rate
+- plotFlag: This is a boolean argument which when set True displays the plots 
+- flag_hp  This is a boolean argument which when set True does seperates the harmonic and percussive components and processing is done on the individual components
+- save_flag: This is a boolean argument which when set True saves the plots on your filesystem
+- filename:  Name of the audio file you are which is under test. This will be the name of the plot files which are being saved. 
+'''
+
+def plotTimeSeries(y,sr, flag_hp, plotFlag, save_flag, filename):
     # y_8k = librosa.resample(y, sr, sr/downsampleF)
     if flag_hp:
         y_harm, y_perc = librosa.effects.hpss(y)
@@ -340,7 +423,16 @@ def plotTimeSeries(y,sr, downsampleF, flag_hp, plotFlag, save_flag, filename):
             plt.show()
 
 
-
+'''
+Plot the spectrum of the audio signal 
+Args:
+- y: The audio signal array
+- sr: The sampling rate
+- plotFlag: This is a boolean argument which when set True displays the plots 
+- flag_hp  This is a boolean argument which when set True does seperates the harmonic and percussive components and processing is done on the individual components
+- save_flag: This is a boolean argument which when set True saves the plots on your filesystem
+- filename:  Name of the audio file you are which is under test. This will be the name of the plot files which are being saved. 
+'''
 def plotSpectrum(y,sr,flag_hp, plotFlag, save_flag, filename):
 
     if flag_hp:
@@ -426,16 +518,31 @@ def plotSpectrum(y,sr,flag_hp, plotFlag, save_flag, filename):
             plt.show()
 
 
-
+'''
+returns the numerator and denominator polynomials of the IIR filter 
+Args:
+- cutoff: The cutoff frequency 
+- fs: Sampling Frequency 
+- order: order of the filter 
+'''
 def butter_lowpass(cutoff, fs, order=5):
     nyq = 0.5 * fs
     normal_cutoff = cutoff / nyq
     b, a = butter(order, normal_cutoff, btype='low', analog=False)
     return b, a
 
-def butter_lowpass_filter(data, cutoff, fs, order=5):
+'''
+Returns the filtered signal by applying butterworth low pass filter 
+Args:
+- y: raw signal which you want to filter  
+- cutoff: The cutoff frequency 
+- fs: Sampling Frequency 
+- order: order of the filter 
+'''
+
+def butter_lowpass_filter(y, cutoff, fs, order=5):
     b, a = butter_lowpass(cutoff, fs, order=order)
-    y = lfilter(b, a, data)
+    y = lfilter(b, a, y)
 
     return y
 
@@ -449,11 +556,19 @@ This means you should not use analog=True in the call to butter, and you should 
 
 -One goal of those short utility functions is to allow you to leave all your frequencies expressed in Hz.
 As long as you express your frequencies with consistent units, the scaling in the utility functions takes care of the normalization for you.
-
 '''
 
 
-
+'''
+Returns the filtered signal by applying butterworth low pass filter. Plots the output and the input signal to enable analysis 
+Args:
+- y: raw signal which you want to filter  
+- cutoff: The cutoff frequency 
+- fs: Sampling Frequency 
+- order: order of the filter 
+- plotFlag: This is a boolean argument which when set True displays the plots 
+- freq_resp_plot : This is a boolean argument which when set True displays the plots in frequency domain  
+'''
 def lpf(y, sr, order, fs, cutoff, freq_resp_plot, plotFlag):
 
     if freq_resp_plot:    
@@ -489,7 +604,14 @@ def lpf(y, sr, order, fs, cutoff, freq_resp_plot, plotFlag):
     return y_filtered    
 
 
-
+'''
+DISCLAIMER: Not working correctly.  
+Perform cepstral analysis of the audio signal
+Args:
+- y: The audio signal array
+- sr: The sampling rate
+- plotFlag: This is a boolean argument which when set True displays the plots 
+'''
 def cepstral_analysis(y, sr, plotFlag):
 
     logfft = np.log(fft(y))
@@ -506,12 +628,18 @@ def cepstral_analysis(y, sr, plotFlag):
     
     return ceps
 
-
+'''
+compute and plot the fft of an image
+- filepath: filepath of the image 
+- shift_zeroF:  This is a boolean argument which when set True shifts the zero-frequency component to the center of the spectrum.
+- plotFlag: This is a boolean argument which when set True displays the plots 
+- save_flag: This is a boolean argument which when set True saves the plots on your filesystem
+'''
 def img_fft(filepath, shift_zeroF, plotFlag, save_flag):
     img = np.asarray(Image.open(filepath))    # Reads the images in gray scale
     f = np.fft.fft2(img)            # Computes the fourier transform
     if shift_zeroF:
-        f = np.fft.fftshift(f)   # Shift the zero-frequency component to the center of the spectrum.
+        f = np.fft.fftshift(f)   
     
     mag_spectrum = np.log(np.abs(f))
     phase = np.angle(img_fft)
@@ -526,6 +654,14 @@ def img_fft(filepath, shift_zeroF, plotFlag, save_flag):
 
     return f # mag_spectrum, phase
 
+'''
+compute and plot the inverse fft of the fft of an image
+- img_fft: fft of an image 
+- shift_zeroF:  This is a boolean argument which when set True shifts the zero-frequency component to the center of the spectrum.
+- plotFlag: This is a boolean argument which when set True displays the plots 
+- save_flag: This is a boolean argument which when set True saves the plots on your filesystem
+'''
+
 def img_ifft(img_fft, shift_zeroF, plotFlag, save_flag):
     if shift_zeroF:
         img_back = np.fft.ifftshift(fshift)             #The inverse of fftshift
@@ -535,6 +671,17 @@ def img_ifft(img_fft, shift_zeroF, plotFlag, save_flag):
 
     return img_back
 
+
+
+'''
+Computes and plots the tempogram of an audio signal  
+Args:
+- y: The audio signal array
+- sr: The sampling rate
+- hop_length: hop_length for stft operation 
+- plotFlag: This is a boolean argument which when set True displays the plots 
+- flag_hp  This is a boolean argument which when set True does seperates the harmonic and percussive components and processing is done on the individual components
+'''
 
 def tempogram(y, sr, hop_length, flag_hp, plotFlag):
 
