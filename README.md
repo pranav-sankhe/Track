@@ -25,7 +25,7 @@
 
 - __January 2020:__ Launch of the open call, Start of the application
 - __30 April 2020:__ Deadline for paper and music/sound submission
-- __May 2020:_  Beginning of registration
+- __May 2020:__  Beginning of registration
 - __10 July 2020:__ Notification of acceptance (paper and music/sound)
 - __31 July 2020:__ Deadline for demo submission
 - __1 Sept 2020:__ Notification of demo acceptance
@@ -43,6 +43,6 @@
 
 
 # CCN
-[](https://www.ccneuro.org/2020/default.asp)
+[https://www.ccneuro.org/2020/default.asp](https://www.ccneuro.org/2020/default.asp)
 
-[](https://compneuroweb.com/conferences.html)
+[https://compneuroweb.com/conferences.html](https://compneuroweb.com/conferences.html)
