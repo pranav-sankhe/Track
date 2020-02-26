@@ -1,0 +1,1 @@
+1. Paper on Meta Model of learning: [http://tmslab.org/includes/alvaro_3.pdf](http://tmslab.org/includes/alvaro_3.pdf)
