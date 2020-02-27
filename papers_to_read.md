@@ -3,3 +3,4 @@
 3. [Reconstructing Speech from Human Auditory Cortex](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001251)
 4. [Deep image reconstruction from human brain activity](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006633)
 5. [End-to-End Deep Image Reconstruction From Human Brain Activity](https://www.frontiersin.org/articles/10.3389/fncom.2019.00021/full)
+6. [Yuki Kamitani's 2005 paper on MRI analysis](https://www.nature.com/articles/nn1444.pdf?origin=ppub)
