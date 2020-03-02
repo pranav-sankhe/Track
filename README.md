@@ -33,15 +33,6 @@
 - __4-5 November:__ Concerts
 
 
-# CNS 2020: 29th Anuual Computational Neuroscience Meeting
-#### Important Dates:
-- __Feb 27__: Latest safe date for Member Application
-- __March 4__: Abstract Submission Closes
-- __May 6__: Early registration closes
-- __July 18__: Tutorials, Keynote, Reception
-- __July 19__: Main Meeting  
-
-
 # CCN
 [https://www.ccneuro.org/2020/default.asp](https://www.ccneuro.org/2020/default.asp)
 
@@ -50,4 +41,3 @@
 
 ## Music research conference
 [https://attend.ieee.org/mmsp-2020/important-dates/](https://attend.ieee.org/mmsp-2020/important-dates/)
-
