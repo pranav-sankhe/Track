@@ -7,3 +7,4 @@
 7. [Near-real-time feature-selective modulations in human cortex](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3608396/pdf/nihms445896.pdf)
 8. [Neural population coding](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4379382/pdf/main.pdf)
 9. [Neuroimaging changes in brain structure during learning](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3660656/pdf/emss-48836.pdf)
+10. [Sync of resting state fMRI](https://reader.elsevier.com/reader/sd/pii/S1053811918300582?token=AEEE4F3CD04F8AFCDDC132D15F660AD0B6B4A3A1CE29DB66D570A2DB9D10A41AA1957F2F000260A114D6AC3091FCCF69)
