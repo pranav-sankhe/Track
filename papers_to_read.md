@@ -4,3 +4,5 @@
 4. [Deep image reconstruction from human brain activity](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006633)
 5. [End-to-End Deep Image Reconstruction From Human Brain Activity](https://www.frontiersin.org/articles/10.3389/fncom.2019.00021/full)
 6. [Yuki Kamitani's 2005 paper on MRI analysis](https://www.nature.com/articles/nn1444.pdf?origin=ppub)
+7. [Near-real-time feature-selective modulations in human cortex](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3608396/pdf/nihms445896.pdf)
+8. [Neural population coding](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4379382/pdf/main.pdf)
