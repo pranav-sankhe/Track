@@ -8,3 +8,4 @@
 8. [Neural population coding](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4379382/pdf/main.pdf)
 9. [Neuroimaging changes in brain structure during learning](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3660656/pdf/emss-48836.pdf)
 10. [Sync of resting state fMRI](https://reader.elsevier.com/reader/sd/pii/S1053811918300582?token=AEEE4F3CD04F8AFCDDC132D15F660AD0B6B4A3A1CE29DB66D570A2DB9D10A41AA1957F2F000260A114D6AC3091FCCF69)
+11. [A Tutorial for Information Theory in Neuroscience](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6131830/pdf/ENEURO.0052-18.2018.pdf)
