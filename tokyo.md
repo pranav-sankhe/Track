@@ -4,5 +4,4 @@
 	- Salma Tikka & Biryani (4 Chome-22-11 Takanawa, Minato City, Tokyo 108-0074, Japan)
 	- Vege Herb Saga near Okachimachi
 	- Mandala in Kudanshita
-
-
+- Itoya Ginza. Get Origami Paper and stationary
